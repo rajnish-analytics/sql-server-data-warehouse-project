@@ -42,6 +42,7 @@ The modeling approach is inspired by dimensional modeling concepts commonly used
 
 📂 Project Structure
 sql-server-data-warehouse-project/
+
 │
 ├── datasets/        # Raw datasets
 ├── staging/         # Staging layer scripts
