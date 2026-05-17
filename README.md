@@ -4,7 +4,7 @@
 ⸻
 
 📌 Project Overview
-This project focuses on building an end-to-end data warehouse solution using SQL Server.
+ This project focuses on building an end-to-end data warehouse solution using SQL Server.
 The objective is to transform raw operational data into structured, analytics-ready datasets through ETL processes and dimensional modeling techniques.
 The project simulates a real-world business intelligence workflow used in modern data and analytics environments.
 
@@ -41,7 +41,7 @@ The modeling approach is inspired by dimensional modeling concepts commonly used
 ⸻
 
 📂 Project Structure
-sql-server-data-warehouse-project/
+ sql-server-data-warehouse-project/
 │
 ├── datasets/        # Raw datasets
 ├── staging/         # Staging layer scripts
@@ -63,11 +63,11 @@ sql-server-data-warehouse-project/
 ⸻
 
 👨‍💻 About Me
-I am a Chemical Engineering graduate from NIT Jalandhar transitioning into data analytics and data engineering.
+ I am a Chemical Engineering graduate from NIT Jalandhar transitioning into data analytics and data engineering.
 After working in the manufacturing industry as an Engineer, I started learning SQL, analytics, and data engineering through hands-on projects and problem solving.
 This repository documents my learning journey and practical implementation experience.
 
 ⸻
 
 📜 License
-This project is licensed under the MIT License.
+ This project is licensed under the MIT License.
