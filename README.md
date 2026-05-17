@@ -39,7 +39,7 @@ The modeling approach is inspired by dimensional modeling concepts commonly used
 * Aggregations and Reporting
  
 ⸻
- 
+
 📂 Project Structure
 sql-server-data-warehouse-project/
 │
@@ -50,6 +50,7 @@ sql-server-data-warehouse-project/
 ├── analytics/       # Business analysis queries
 ├── docs/            # Notes and documentation
 └── README.md
+
 🎯 Learning Goals
 * Build practical SQL and data engineering skills
 * Understand real-world ETL workflows
