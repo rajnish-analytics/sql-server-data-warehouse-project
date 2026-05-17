@@ -66,7 +66,7 @@ sql-server-data-warehouse-project/
 I am a Chemical Engineering graduate from NIT Jalandhar transitioning into data analytics and data engineering.
 After working in the manufacturing industry as an Engineer, I started learning SQL, analytics, and data engineering through hands-on projects and problem solving.
 This repository documents my learning journey and practical implementation experience.
- 
+
 ⸻
 
 📜 License
