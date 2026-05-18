@@ -1,6 +1,6 @@
 /*
 ============================================================================
-Script Name: Create DataWarehouse database and bronze/silver/gold schemas
+Script: Create DataWarehouse database and bronze/silver/gold schemas
 ============================================================================
 Purpose: Recreate the DataWarehouse database from scratch and establish
           the initial data tier schemas used for Bronze, Silver, and Gold
@@ -13,8 +13,6 @@ Notes:
    - Creates a fresh DataWarehouse database.
    - Creates three schemas: bronze, silver, gold.
    - Intended for initial setup or rebuilds.
-----------------------------------------------------------------------------
-Author: Rajnish
 ----------------------------------------------------------------------------
 */
 
