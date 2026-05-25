@@ -4,8 +4,8 @@ Script: Stored Procedure - Load Bronze Layer Data
 =====================================================================================================
 Purpose: Stored procedure to load source CSV files into the bronze schema tables using BULK INSERT.
 Notes:
-  - Truncates target tables before loading to ensure idempotency.
   - Uses BULK INSERT to load source CSV files into bronze schema tables.
+  - Truncates target tables before loading to ensure idempotency.
   - Uses TRY/CATCH for runtime error reporting.
   - Prints row counts, null checks, and timing information.
 
@@ -19,8 +19,7 @@ Execution: EXEC bronze.load_bronze;
 
 CREATE OR ALTER PROCEDURE bronze.load_bronze AS
 BEGIN
-    DECLARE @start_time DATETIME, @end_time DATETIME, @batch_start_time DATETIME, @batch_end_time DATETIME;
-    DECLARE @row_count INT, @null_count INT;
+    DECLARE @start_time DATETIME, @end_time DATETIME, @batch_start_time DATETIME, @batch_end_time DATETIME, @row_count INT, @null_count INT;
     
     BEGIN TRY
         SET @batch_start_time = GETDATE();
@@ -42,18 +41,17 @@ BEGIN
             WITH (
                 FIRSTROW = 2,
                 FIELDTERMINATOR = ',',
-                ROWTERMINATOR = '\n',
                 TABLOCK
             );
             SET @end_time = GETDATE();
             SET @row_count = (SELECT COUNT(*) FROM bronze.crm_cust_info);
             SET @null_count = (SELECT COUNT(*) FROM bronze.crm_cust_info WHERE cst_id IS NULL);
             
-            PRINT '@@@ Duration: ' + CAST(DATEDIFF(millisecond, @start_time, @end_time) AS NVARCHAR) + ' millisecond';
-            PRINT '@@@ Row Count: ' + CAST(@row_count AS NVARCHAR);
+            PRINT '@@@ Duration: ' + CAST(DATEDIFF(millisecond, @start_time, @end_time) AS NVARCHAR) + ' ms';
+            PRINT '@@@ Rows Inserted: ' + CAST(@row_count AS NVARCHAR);
             PRINT '@@@ Null Check (cst_id): ' + CAST(@null_count AS NVARCHAR) + ' nulls found';
             IF @row_count = 0
-                PRINT '!!! WARNING: No data loaded into bronze.crm_cust_info';
+                PRINT '!!!WARNING!!! No Data Loaded Into bronze.crm_cust_info';
             PRINT '*********************************';
 
             SET @start_time = GETDATE();
@@ -66,18 +64,17 @@ BEGIN
             WITH (
                 FIRSTROW = 2,
                 FIELDTERMINATOR = ',',
-                ROWTERMINATOR = '\n',
                 TABLOCK
             );
             SET @end_time = GETDATE();
             SET @row_count = (SELECT COUNT(*) FROM bronze.crm_prd_info);
             SET @null_count = (SELECT COUNT(*) FROM bronze.crm_prd_info WHERE prd_id IS NULL);
             
-            PRINT '@@@ Duration: ' + CAST(DATEDIFF(millisecond, @start_time, @end_time) AS NVARCHAR) + ' millisecond';
-            PRINT '@@@ Row Count: ' + CAST(@row_count AS NVARCHAR);
+            PRINT '@@@ Duration: ' + CAST(DATEDIFF(millisecond, @start_time, @end_time) AS NVARCHAR) + ' ms';
+            PRINT '@@@ Rows Inserted: ' + CAST(@row_count AS NVARCHAR);
             PRINT '@@@ Null Check (prd_id): ' + CAST(@null_count AS NVARCHAR) + ' nulls found';
             IF @row_count = 0
-                PRINT '!!! WARNING: No data loaded into bronze.crm_prd_info';
+                PRINT '!!!WARNING!!! No Data Loaded Into bronze.crm_prd_info';
             PRINT '*********************************';
 
             SET @start_time = GETDATE();
@@ -90,18 +87,17 @@ BEGIN
             WITH (
                 FIRSTROW = 2,
                 FIELDTERMINATOR = ',',
-                ROWTERMINATOR = '\n',
                 TABLOCK
             );
             SET @end_time = GETDATE();
             SET @row_count = (SELECT COUNT(*) FROM bronze.crm_sales_details);
             SET @null_count = (SELECT COUNT(*) FROM bronze.crm_sales_details WHERE sls_ord_num IS NULL);
             
-            PRINT '@@@ Duration: ' + CAST(DATEDIFF(millisecond, @start_time, @end_time) AS NVARCHAR) + ' millisecond';
-            PRINT '@@@ Row Count: ' + CAST(@row_count AS NVARCHAR);
+            PRINT '@@@ Duration: ' + CAST(DATEDIFF(millisecond, @start_time, @end_time) AS NVARCHAR) + ' ms';
+            PRINT '@@@ Rows Inserted: ' + CAST(@row_count AS NVARCHAR);
             PRINT '@@@ Null Check (sls_ord_num): ' + CAST(@null_count AS NVARCHAR) + ' nulls found';
             IF @row_count = 0
-                PRINT '!!! WARNING: No data loaded into bronze.crm_sales_details';
+                PRINT '!!!WARNING!!! No Data Loaded Into bronze.crm_sales_details';
             PRINT '*********************************';
             
             PRINT '----------------------------------------------------------------';
@@ -118,18 +114,17 @@ BEGIN
             WITH (
                 FIRSTROW = 2,
                 FIELDTERMINATOR = ',',
-                ROWTERMINATOR = '\n',
                 TABLOCK
             );
             SET @end_time = GETDATE();
             SET @row_count = (SELECT COUNT(*) FROM bronze.erp_cust_az12);
             SET @null_count = (SELECT COUNT(*) FROM bronze.erp_cust_az12 WHERE cid IS NULL);
             
-            PRINT '@@@ Duration: ' + CAST(DATEDIFF(millisecond, @start_time, @end_time) AS NVARCHAR) + ' millisecond';
-            PRINT '@@@ Row Count: ' + CAST(@row_count AS NVARCHAR);
+            PRINT '@@@ Duration: ' + CAST(DATEDIFF(millisecond, @start_time, @end_time) AS NVARCHAR) + ' ms';
+            PRINT '@@@ Rows Inserted: ' + CAST(@row_count AS NVARCHAR);
             PRINT '@@@ Null Check (cid): ' + CAST(@null_count AS NVARCHAR) + ' nulls found';
             IF @row_count = 0
-                PRINT '!!! WARNING: No data loaded into bronze.erp_cust_az12';
+                PRINT '!!!WARNING!!! No Data Loaded Into bronze.erp_cust_az12';
             PRINT '*********************************';
             
             SET @start_time = GETDATE();
@@ -142,18 +137,17 @@ BEGIN
             WITH (
                 FIRSTROW = 2,
                 FIELDTERMINATOR = ',',
-                ROWTERMINATOR = '\n',
                 TABLOCK
             );
             SET @end_time = GETDATE();
             SET @row_count = (SELECT COUNT(*) FROM bronze.erp_loc_a101);
             SET @null_count = (SELECT COUNT(*) FROM bronze.erp_loc_a101 WHERE cid IS NULL);
             
-            PRINT '@@@ Duration: ' + CAST(DATEDIFF(millisecond, @start_time, @end_time) AS NVARCHAR) + ' millisecond';
-            PRINT '@@@ Row Count: ' + CAST(@row_count AS NVARCHAR);
+            PRINT '@@@ Duration: ' + CAST(DATEDIFF(millisecond, @start_time, @end_time) AS NVARCHAR) + ' ms';
+            PRINT '@@@ Row Inserted: ' + CAST(@row_count AS NVARCHAR);
             PRINT '@@@ Null Check (cid): ' + CAST(@null_count AS NVARCHAR) + ' nulls found';
             IF @row_count = 0
-                PRINT '!!! WARNING: No data loaded into bronze.erp_loc_a101';
+                PRINT '!!!WARNING!!! No Data Loaded Into bronze.erp_loc_a101';
             PRINT '*********************************';
             
             SET @start_time = GETDATE();
@@ -166,30 +160,29 @@ BEGIN
             WITH (
                 FIRSTROW = 2,
                 FIELDTERMINATOR = ',',
-                ROWTERMINATOR = '\n',
                 TABLOCK
             );
             SET @end_time = GETDATE();
             SET @row_count = (SELECT COUNT(*) FROM bronze.erp_px_cat_g1v2);
             SET @null_count = (SELECT COUNT(*) FROM bronze.erp_px_cat_g1v2 WHERE id IS NULL);
             
-            PRINT '@@@ Duration: ' + CAST(DATEDIFF(millisecond, @start_time, @end_time) AS NVARCHAR) + ' millisecond';
-            PRINT '@@@ Row Count: ' + CAST(@row_count AS NVARCHAR);
+            PRINT '@@@ Duration: ' + CAST(DATEDIFF(millisecond, @start_time, @end_time) AS NVARCHAR) + ' ms';
+            PRINT '@@@ Row Inserted: ' + CAST(@row_count AS NVARCHAR);
             PRINT '@@@ Null Check (id): ' + CAST(@null_count AS NVARCHAR) + ' nulls found';
             IF @row_count = 0
-                PRINT '!!! WARNING: No data loaded into bronze.erp_px_cat_g1v2';
+                PRINT '!!!WARNING!!! No data Loaded Into bronze.erp_px_cat_g1v2';
             PRINT '*********************************';
 
         SET @batch_end_time = GETDATE();
         PRINT '****************************************************************';
         PRINT 'DATA LOADING INTO BRONZE LAYER COMPLETED.';
-        PRINT 'TOTAL LOAD DURATION: ' + CAST(DATEDIFF(millisecond, @batch_start_time, @batch_end_time) AS NVARCHAR) + ' milliseconds';
+        PRINT 'TOTAL LOAD DURATION: ' + CAST(DATEDIFF(millisecond, @batch_start_time, @batch_end_time) AS NVARCHAR) + ' ms';
         PRINT '****************************************************************';
 
     END TRY
     BEGIN CATCH
         PRINT '=================================================================';
-        PRINT 'An error occurred while loading data into the Bronze Layer.';
+        PRINT 'AN ERROR OCCURRED WHILE LOADING DATA INTO THE BRONZE LAYER';
         PRINT 'ERROR MESSAGE: ' + ERROR_MESSAGE();
         PRINT 'ERROR NUMBER: ' + CAST(ERROR_NUMBER() AS NVARCHAR(10));
         PRINT 'ERROR SEVERITY: ' + CAST(ERROR_SEVERITY() AS NVARCHAR(10));
