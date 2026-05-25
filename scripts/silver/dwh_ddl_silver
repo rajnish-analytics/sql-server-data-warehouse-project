@@ -1,6 +1,6 @@
 /*
 =============================================================================
-Script: Create silver layer tables
+Script: Create Silver Layer Tables
 =============================================================================
 Purpose: DDL script to create silver layer tables in the 'silver' schema.
 Notes:
