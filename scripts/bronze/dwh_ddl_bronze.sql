@@ -1,6 +1,6 @@
 /*
 =============================================================================
-Script: Create Bronze layer tables
+Script: Create Bronze Layer Tables
 =============================================================================
 Purpose: DDL script to create Bronze layer tables in the 'bronze' schema.
 Notes:
