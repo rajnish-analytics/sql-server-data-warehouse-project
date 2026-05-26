@@ -86,7 +86,7 @@ BEGIN
           PRINT '>>> Inserting Data Into Table: silver.crm_prd_info';
           INSERT INTO silver.crm_prd_info (
           prd_id,
-          prd_cat,
+          prd_cat_id,
           prd_key,
           prd_nm,
           prd_cost,
@@ -96,7 +96,7 @@ BEGIN
           )
           SELECT
           prd_id,
-          REPLACE(LEFT(prd_key, 5), '-', '_') prd_cat,
+          REPLACE(LEFT(prd_key, 5), '-', '_') prd_cat_id,
           SUBSTRING(prd_key, 7, LEN(prd_key)) prd_key,
           prd_nm,
           ISNULL(ABS(prd_cost), 0) prd_cost,
