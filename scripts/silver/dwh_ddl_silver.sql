@@ -37,7 +37,6 @@ CREATE TABLE silver.crm_prd_info
     prd_line NVARCHAR(50),
     prd_start_dt DATE,
     prd_end_dt DATE,
-    user_creation DATE,
     dwh_creation_date DATETIME DEFAULT GETDATE()
 );
 GO
