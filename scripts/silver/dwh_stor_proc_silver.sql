@@ -138,7 +138,7 @@ BEGIN
           sls_ord_num,
           sls_prd_key,
           sls_cust_id,
-          CASE WHEN LEN(sls_order_dt) = 8 AND LEN(sls_order_dt) = 6 THEN CAST(CAST(sls_order_dt AS VARCHAR) AS DATE)
+          CASE WHEN LEN(sls_order_dt) = 8 OR LEN(sls_order_dt) = 6 THEN CAST(CAST(sls_order_dt AS VARCHAR) AS DATE)
                ELSE NULL END sls_order_dt,
           sls_ship_dt,
           sls_due_dt,
