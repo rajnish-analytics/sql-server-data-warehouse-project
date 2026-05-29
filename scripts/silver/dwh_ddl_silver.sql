@@ -2,11 +2,12 @@
 =============================================================================
 Script: Create Silver Layer Tables
 =============================================================================
-Purpose: DDL script to create silver layer tables in the 'silver' schema.
-Notes:
-  - Drops each silver table if it exists, then recreates it.
-  - This is a DDL script for the silver ETL layer.
-  - Run this script to redefine the DDL structure of 'silver' Tables.
+Purpose: DDL script to create silver layer tables in the 'Silver' schema.
+
+The script includes:
+1. Drops each silver table if it exists, then recreates it.
+2. This is a DDL script for the silver ETL layer.
+3. Run this script to redefine the DDL structure of 'Silver' Tables.
 =============================================================================
 */
 
