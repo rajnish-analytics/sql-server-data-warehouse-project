@@ -1,8 +1,8 @@
 /*
-=====================================================================================================
+======================================================================================================
 Script: Stored Procedure - Load Silver Layer Data
-=====================================================================================================
-Purpose: Stored procedure to load bronze tables into the 'silver' schema tables.
+======================================================================================================
+Purpose: This script creates a stored procedure to load bronze tables into the 'silver' schema tables.
 Notes:
      - Uses INSERT to load data into silver schema tables.
      - Truncates target tables before loading to ensure idempotency.
@@ -18,7 +18,7 @@ This procedure does not accept any parameters or return any result sets.
 It performs data loading operations and prints status messages.
 
 Execution: EXEC silver.load_silver;
-=====================================================================================================
+======================================================================================================
 */
 
 CREATE OR ALTER PROCEDURE silver.load_silver AS
