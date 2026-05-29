@@ -5,7 +5,7 @@ Script: Gold Layer Data Quality Checks
 Objective: This script performs data quality and validation checks for the Gold layer tables in the data warehouse.
 
 The checks include:
-1. Validation of relationships between source systems and Gold layer tables.
+1. Validation of data consistency and relationships in Gold layer tables.
 2. Verification of primary key uniqueness.
 3. Foreign key integrity checks between fact and dimension tables.
 4. Validation of transformed and standardized values.
