@@ -1,24 +1,26 @@
 /*
-======================================================================================================
-Script: Stored Procedure - Load Silver Layer Data
-======================================================================================================
-Purpose: This script creates a stored procedure to load bronze tables into the 'silver' schema tables.
-Notes:
-     - Uses INSERT to load data into silver schema tables.
-     - Truncates target tables before loading to ensure idempotency.
-     - To ensure data quality and consistency, data transformation is performed.
-       i.e. Data Enrichment, Data Integration, Derived Columns, Data Normalization & Standardization
-       and Data Cleaning.
-     - Data standardization is performed to ensure data quality and consistency.
-     - Uses TRY/CATCH for runtime error reporting.
-     - Prints row counts, null checks, and time duration information.
+====================================================================================================================
+Script: Stored Procedure - Load Data into Silver Layer
+====================================================================================================================
+Purpose: This script creates a stored procedure to load data into the 'Silver' schema tables from Bronze layer. The 
+Silver layer represents the cleaned and transformed data that is ready for further processing into the Gold layer.
+
+This script performs the following actions:
+1. Uses INSERT to load data into silver schema tables.
+2. Truncates target tables before loading to ensure idempotency.
+3. To ensure data quality and consistency, data transformation is performed.
+   i.e. Data Enrichment, Data Integration, Derived Columns, Data Normalization & Standardization
+   and Data Cleaning.
+4. Data standardization is performed to ensure data quality and consistency.
+5. Uses TRY/CATCH for runtime error reporting.
+6. Prints row counts, null checks, and time duration information.
 
 Parameters: None 
 This procedure does not accept any parameters or return any result sets. 
 It performs data loading operations and prints status messages.
 
 Execution: EXEC silver.load_silver;
-======================================================================================================
+====================================================================================================================
 */
 
 CREATE OR ALTER PROCEDURE silver.load_silver AS
