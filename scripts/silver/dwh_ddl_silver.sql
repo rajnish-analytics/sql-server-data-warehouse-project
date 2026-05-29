@@ -1,14 +1,24 @@
 /*
-===========================================================================
-Script: Create Silver Layer Tables
-===========================================================================
-Objective: DDL script to create silver layer tables in the 'Silver' schema.
+=========================================================================================
+Script: Create Objects/Tables for Silver Layer
+=========================================================================================
+Objective: This DDL script creates the necessary tables for the Silver layer of the data 
+warehouse in the 'silver' schema.
 
-The script includes:
-1. Drops each silver table if it exists, then recreates it.
-2. This is a DDL script for the silver ETL layer.
-3. Run this script to redefine the DDL structure of 'Silver' Tables.
-===========================================================================
+Tables:
+    - silver.crm_cust_info
+    - silver.crm_prd_info
+    - silver.crm_sales_details
+    - silver.erp_cust_az12
+    - silver.erp_loc_a101
+    - silver.erp_px_cat_g1v2
+
+The script performs the following tasks:
+1. Checks if each table already exists in the 'silver' schema and drops it if it does.
+2. Creates new tables with the specified schema for each of the above-mentioned tables.
+3. This script is intended to be run once to set up the Silver layer tables before 
+   loading data into them.
+=========================================================================================
 */
 
 IF OBJECT_ID ('silver.crm_cust_info', 'U') IS NOT NULL
