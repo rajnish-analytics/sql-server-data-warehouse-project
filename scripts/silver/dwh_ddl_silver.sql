@@ -2,7 +2,7 @@
 =============================================================================
 Script: Create Silver Layer Tables
 =============================================================================
-Purpose: DDL script to create silver layer tables in the 'Silver' schema.
+Objective: DDL script to create silver layer tables in the 'Silver' schema.
 
 The script includes:
 1. Drops each silver table if it exists, then recreates it.
