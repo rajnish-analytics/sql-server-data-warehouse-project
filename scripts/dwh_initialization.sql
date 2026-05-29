@@ -1,19 +1,21 @@
 /*
-============================================================================
-Script: Create DataWarehouse database and bronze/silver/gold schemas
-============================================================================
-Purpose: Recreate the DataWarehouse database from scratch and establish
-          the initial data tier schemas used for Bronze, Silver, and Gold
-          data pipeline layers.
-Warning: This script is destructive. It drops the existing DataWarehouse
-          database if it exists, so run only in non-production or controlled
-          environments where data loss is acceptable.
-Notes:
-   - Drops the existing DataWarehouse database if it exists.
-   - Creates a fresh DataWarehouse database.
-   - Creates three schemas: bronze, silver, gold.
-   - Intended for initial setup or rebuilds.
-============================================================================
+==============================================================================================
+Script: Create DataWarehouse Database and bronze/silver/gold schemas
+==============================================================================================
+Objective: This script initializes the DataWarehouse database by creating it from scratch and 
+setting up the necessary schemas for the Bronze, Silver, and Gold layers of the data pipeline.
+This is a foundational step in establishing the data warehouse environment.
+ 
+Warning: This script is destructive as it drops the existing DataWarehouse database if it 
+exists. It should be used with caution in non-production environments where data loss is 
+acceptable.
+
+This script performs the following actions:
+1. Checks for the existence of the DataWarehouse database and drops it if found.
+2. Creates a new DataWarehouse database.
+3. Creates three schemas within the DataWarehouse database: bronze, silver, and gold.
+4. Intended for initial setup or rebuilds.
+==============================================================================================
 */
 
 USE master;
