@@ -13,7 +13,7 @@ Notes:
    - Creates a fresh DataWarehouse database.
    - Creates three schemas: bronze, silver, gold.
    - Intended for initial setup or rebuilds.
-----------------------------------------------------------------------------
+============================================================================
 */
 
 USE master;
