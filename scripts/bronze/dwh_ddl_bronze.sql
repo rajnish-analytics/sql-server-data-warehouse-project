@@ -1,13 +1,14 @@
 /*
-=============================================================================
+=========================================================================
 Script: Create Bronze Layer Tables
-=============================================================================
-Purpose: DDL script to create Bronze layer tables in the 'bronze' schema.
-Notes:
-  - Drops each bronze table if it exists, then recreates it.
-  - This is a DDL script for the bronze ETL layer.
-  - Run this script to redefine the DDL structure of 'bronze' Tables.
-=============================================================================
+=========================================================================
+Purpose: DDL script to create Bronze layer tables in the 'Bronze' schema.
+
+The script includes:
+1. Drops each bronze table if it exists, then recreates it.
+2. This is a DDL script for the bronze ETL layer.
+3. Run this script to redefine the DDL structure of 'Bronze' Tables.
+=========================================================================
 */
 
 IF OBJECT_ID ('bronze.crm_cust_info', 'U') IS NOT NULL
