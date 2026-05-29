@@ -205,7 +205,6 @@ SELECT
 COUNT(DISTINCT product_key) total_distinct_products_in_sales
 FROM gold.fact_sales_info
 
-
 --->>>To check customers who have not placed any orders
 SELECT DISTINCT
 *
