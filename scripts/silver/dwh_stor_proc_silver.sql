@@ -180,8 +180,8 @@ BEGIN
                ELSE cid END cid,
           CASE WHEN bdate > GETDATE() THEN NULL
                ELSE bdate END bdate,
-          CASE WHEN UPPER(TRIM(REPLACE(gen,0X0D, ''))) = 'MALE' THEN 'MALE'
-               WHEN UPPER(TRIM(REPLACE(gen,0X0D, ''))) = 'FEMALE' THEN 'FEMALE'
+          CASE WHEN UPPER(TRIM(REPLACE(gen,0X0D, ''))) = 'MALE' THEN 'MALE'  --Remove hidden control characters (\r)
+               WHEN UPPER(TRIM(REPLACE(gen,0X0D, ''))) = 'FEMALE' THEN 'FEMALE'  --Remove hidden control characters (\r)
                ELSE 'N/A' END gen
           FROM bronze.erp_cust_az12;
           SET @end_time = GETDATE();
@@ -215,7 +215,7 @@ BEGIN
           FROM (
                SELECT
                cid,
-               UPPER(TRIM(REPLACE(cntry, char(13), ''))) cntry
+               UPPER(TRIM(REPLACE(cntry, char(13), ''))) cntry  --Remove hidden control characters (\r)
                FROM bronze.erp_loc_a101
                )t;
           SET @end_time = GETDATE();
@@ -243,8 +243,8 @@ BEGIN
           id,
           cat,
           subcat,
-          CASE WHEN UPPER(TRIM(REPLACE(maintenance, char(13), ''))) = 'YES' THEN 'YES'
-               WHEN UPPER(TRIM(REPLACE(maintenance, char(13), ''))) = 'NO' THEN 'NO'
+          CASE WHEN UPPER(TRIM(REPLACE(maintenance, char(13), ''))) = 'YES' THEN 'YES'  --Remove hidden control characters (\r)
+               WHEN UPPER(TRIM(REPLACE(maintenance, char(13), ''))) = 'NO' THEN 'NO'  --Remove hidden control characters (\r)
                ELSE 'N/A' END maintenance
           FROM bronze.erp_px_cat_g1v2;
           SET @end_time = GETDATE();
@@ -276,3 +276,20 @@ BEGIN
      END CATCH;
 END
 GO
+
+/*
+Note:
+In this SQL Server instance, comparisons using CASE, WHERE, LIKE, and '=' are case-insensitive due to the default collation.
+However, UPPER() is still used during transformations for consistency, scalability, and compatibility across different SQL 
+Server environments.
+Also, SQL Server supports implicit conversion between compatible INT and DATE-related operations in certain scenarios.
+
+Control Character Reference:
+\r  = CHAR(13) = ASCII Decimal 13 = Hexadecimal 0D
+\n  = CHAR(10) = ASCII Decimal 10 = Hexadecimal 0A
+
+ROWTERMINATOR = ‘\n’ was used during Bronze-layer BULK INSERT. Since Windows source files commonly use (\r\n) line endings, 
+residual carriage return characters (\r or CHAR(13) or 0D Hex) remained attached to imported values and were removed during 
+Silver-layer cleansing using REPLACE(). This can also be handled during bulk loading itself by defining the appropriate 
+ROWTERMINATOR i.e ROWTERMINATOR = '\r\n' or '0X0D0A'
+*/
