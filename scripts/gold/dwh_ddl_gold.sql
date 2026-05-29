@@ -56,10 +56,13 @@ CREATE VIEW gold.dim_product_info AS
         cp.prd_key AS product_number,
         cp.prd_nm AS product_name,
         cp.prd_cat_id AS category_id,
-        ec.cat AS category,
-        ec.subcat AS subcategory,
+        CASE WHEN ec.cat IS NULL THEN 'N/A'
+             ELSE ec.cat END AS category,
+        CASE WHEN ec.subcat IS NULL THEN 'N/A'
+             ELSE ec.subcat END subcategory,
         cp.prd_cost AS cost,
-        ec.maintenance AS maintenance,
+        CASE WHEN ec.maintenance IS NULL THEN 'N/A'
+             ELSE ec.maintenance END maintenance,
         cp.prd_line AS product_line,
         cp.prd_start_dt AS start_date
     FROM silver.crm_prd_info cp
