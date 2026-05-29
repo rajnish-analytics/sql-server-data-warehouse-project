@@ -2,8 +2,9 @@
 ===========================================================================================================
 Script: Create Gold Layer Views for Data Warehouse
 ===========================================================================================================
-Purpose: This script creates dimension and fact views for the 'gold' layer of the data warehouse.
-The gold layer represents the final, business-ready data that is used for reporting and analytics.
+Purpose: This script creates dimension and fact views for the 'gold' layer of the data warehouse. The gold
+layer represents the final, business-ready data that is used for reporting and analytics.
+
 The script includes:
 1. Creation of dimension views for customers and products.
 2. Creation of a fact view for sales information.
