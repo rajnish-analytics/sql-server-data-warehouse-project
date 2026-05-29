@@ -2,7 +2,7 @@
 =====================================================================================================================
 Script: Stored Procedure - Load Data into Bronze Layer
 =====================================================================================================================
-Objective: This script creates a stored procedure to load data into the 'Bronze' schema tables from source CSV files.
+Objective: This script creates a stored procedure to load data into the 'bronze' schema tables from source CSV files.
 The Bronze layer represents the raw, unprocessed data that is ingested into the data warehouse.
 
 This script performs the following actions:
