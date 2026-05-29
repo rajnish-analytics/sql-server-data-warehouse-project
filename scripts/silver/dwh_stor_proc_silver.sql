@@ -2,7 +2,7 @@
 ======================================================================================================================
 Script: Stored Procedure - Load Data into Silver Layer
 ======================================================================================================================
-Objective: This script creates a stored procedure to load data into the 'Silver' schema tables from Bronze layer. The 
+Objective: This script creates a stored procedure to load data into the 'silver' schema tables from Bronze layer. The 
 Silver layer represents the cleaned and transformed data that is ready for further processing into the Gold layer.
 
 This script performs the following actions:
