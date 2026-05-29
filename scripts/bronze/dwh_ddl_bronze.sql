@@ -2,7 +2,7 @@
 =========================================================================
 Script: Create Bronze Layer Tables
 =========================================================================
-Purpose: DDL script to create Bronze layer tables in the 'Bronze' schema.
+Objective: DDL script to create Bronze layer tables in the 'Bronze' schema.
 
 The script includes:
 1. Drops each bronze table if it exists, then recreates it.
