@@ -1,8 +1,8 @@
 /*
-=====================================================================================================
+=========================================================================================================
 Script: Stored Procedure - Load Bronze Layer Data
-=====================================================================================================
-Purpose: Stored procedure to load source CSV files into the 'bronze' schema tables.
+=========================================================================================================
+Purpose: This script creates a stored procedure to load source CSV files into the 'bronze' schema tables.
 Notes:
   - Uses BULK INSERT to load source CSV files into bronze schema tables.
   - Truncates target tables before loading to ensure idempotency.
@@ -14,7 +14,7 @@ This procedure does not accept any parameters or return any result sets.
 It performs data loading operations and prints status messages.
 
 Execution: EXEC bronze.load_bronze;
-=====================================================================================================
+=========================================================================================================
 */
 
 CREATE OR ALTER PROCEDURE bronze.load_bronze AS
