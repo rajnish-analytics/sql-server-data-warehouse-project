@@ -5,7 +5,7 @@ Script: Create Views for Gold Layer
 Objective: This script creates dimension and fact views for the 'gold' schema of the data warehouse. The Gold 
 layer represents the final, business-ready data that is used for reporting and analytics.
 
-The script performs the following tasks:
+This script performs the following tasks:
 1. Creation of dimension views for customers and products.
 2. Creation of a fact view for sales information.
 3. Each view performs necessary transformations and joins to ensure data quality and consistency.
