@@ -1,21 +1,19 @@
-# 📚 Data Warehouse Naming Conventions
+📚 Data Warehouse Naming Conventions
 
 This document defines the naming standards used throughout the DataWarehouse project to ensure consistency, maintainability, and ease of understanding across all layers.
 
 ---
 
-### 📋 Table of Contents
+## 📋 Table of Contents
 
 * [General Principles](#-general-principles)
 * [Table Naming Conventions](#-table-naming-conventions)
   - [Bronze Layer](#bronze-layer)
   - [Silver Layer](#silver-layer)
   - [Gold Layer](#gold-layer)
-
 * [Column Naming Conventions](#-column-naming-conventions)
   - [Surrogate Keys](#surrogate-keys)
   - [Technical Columns](#technical-columns)
-
 * [Stored Procedure Naming Conventions](#-stored-procedure-naming-conventions)
 * [Design Principles](#-design-principles)
 
