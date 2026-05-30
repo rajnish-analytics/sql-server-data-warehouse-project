@@ -1,6 +1,6 @@
 # 📚 Data Warehouse Naming Conventions
 
-This document defines the naming standards used throughout the Data Warehouse project to ensure consistency, maintainability, and ease of understanding across all layers.
+This document defines the naming standards used throughout the DataWarehouse project to ensure consistency, maintainability, and ease of understanding across all layers.
 
 ---
 
@@ -106,7 +106,6 @@ Gold tables contain business-ready data optimized for analytics and reporting.
 dim_customer
 dim_product
 fact_sales
-report_monthly_sales
 ```
 
 ### Category Reference
@@ -187,7 +186,7 @@ load_<layer>
 
 ### Examples
 
-```text
+```
 load_bronze
 load_silver
 load_gold
@@ -218,4 +217,4 @@ The warehouse follows a Medallion Architecture consisting of three logical layer
 
 ---
 
-**Project:** SQL Server Data Warehouse Project
+**Project:** SQL Server DataWarehouse Project
