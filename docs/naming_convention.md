@@ -1,3 +1,7 @@
+```text
+<source_system>_<entity>
+```
+```<source_system>_<entity>```
 # 📚 Data Warehouse Naming Conventions
 
 This document defines the naming standards used throughout the DataWarehouse project to ensure consistency, maintainability, and ease of understanding across all layers.
