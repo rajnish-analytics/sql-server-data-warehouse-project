@@ -4,7 +4,7 @@ This document defines the naming standards used throughout the DataWarehouse pro
 
 ---
 
-### 📋 Table of Contents
+## 📋 Table of Contents
 
 * [General Principles](#-general-principles)
 * [Table Naming Conventions](#-table-naming-conventions)
