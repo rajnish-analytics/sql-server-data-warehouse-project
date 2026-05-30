@@ -1,13 +1,3 @@
-### Pattern
-
-```
-<source_system>_<entity>
-```
-
-### Pattern
-```
-<source_system>_<entity>
-```
 # 📚 Data Warehouse Naming Conventions
 
 This document defines the naming standards used throughout the DataWarehouse project to ensure consistency, maintainability, and ease of understanding across all layers.
@@ -77,13 +67,13 @@ Silver tables contain cleansed, standardized, and transformed data.
 
 ### Pattern
 
-```text
+```
 <source_system>_<entity>
 ```
 
 ### Examples
 
-```text
+```
 crm_cust_info
 crm_prd_info
 erp_cust_az12
@@ -104,13 +94,13 @@ Gold tables contain business-ready data optimized for analytics and reporting.
 
 ### Pattern
 
-```text
+```
 <category>_<entity>
 ```
 
 ### Examples
 
-```text
+```
 dim_customer
 dim_product
 fact_sales
@@ -140,13 +130,13 @@ All surrogate keys must use the `_key` suffix.
 
 ### Pattern
 
-```text
+```
 <entity>_key
 ```
 
 ### Examples
 
-```text
+```
 customer_key
 product_key
 order_key
@@ -164,13 +154,13 @@ Technical and metadata columns must use the `dwh_` prefix.
 
 ### Pattern
 
-```text
+```
 dwh_<column_name>
 ```
 
 ### Examples
 
-```text
+```
 dwh_load_date
 dwh_insert_date
 dwh_update_date
@@ -188,7 +178,7 @@ Stored procedures responsible for loading warehouse layers must follow the namin
 
 ### Pattern
 
-```text
+```
 load_<layer>
 ```
 
@@ -221,7 +211,7 @@ The warehouse follows a Medallion Architecture consisting of three logical layer
 * Maintain data lineage from source to reporting.
 * Improve data quality through standardization and validation.
 * Support scalable reporting and analytical workloads.
-* Ensure consistent naming and modeling practices throughout the warehouse.
+* Ensure consistent naming and modeling practices throughout the Warehouse.
 
 ---
 
