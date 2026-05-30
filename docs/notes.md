@@ -17,7 +17,6 @@ During Bronze-layer ingestion and Silver-layer cleansing, several SQL Server par
 These observations helped improve understanding of how SQL Server processes raw file data during ETL operations.
 
 
-
 ## 1. Files Are Internally Stored as Byte Streams
 
 CSV/text files are internally stored as continuous byte streams.
@@ -46,7 +45,6 @@ Parser interpretation depends on:
 * newline format
 * malformed-row handling
 
---
 
 ## 2. Windows vs Linux Newline Formats
 
@@ -70,7 +68,6 @@ Linux-style newline:
 
 \n = 0A
 
---
 
 ## 3. Why 0D and 0A Have Leading Zeroes
 
@@ -87,7 +84,6 @@ Decimal	Hex
 
 A single hexadecimal digit represents only 4 bits, therefore two digits are required to represent one full byte.
 
---
 
 ## 4. Meaning of 0x Prefix
 
@@ -103,7 +99,6 @@ Meaning:
 
 interpret following values as hexadecimal bytes.
 
---
 
 ## 5. ASCII, Hexadecimal, and Unicode
 
@@ -125,7 +120,6 @@ Unicode extends ASCII to support:
 
 NVARCHAR commonly stores Unicode using UTF-16 encoding.
 
---
 
 ## 6. VARCHAR vs NVARCHAR
 
@@ -151,7 +145,6 @@ DATALENGTH()
 
 results.
 
---
 
 ## 7. LEN() vs DATALENGTH()
 
@@ -180,7 +173,6 @@ Useful for:
 * hidden-character detection
 * ETL cleansing checks
 
---
 
 ## 8. SQL Server Trailing Space Behavior
 
@@ -200,7 +192,6 @@ Behavior may vary depending on:
 * datatype
 * SQL Server configuration
 
---
 
 ## 9. Control Characters
 
@@ -220,7 +211,6 @@ Character	Purpose
 
 They are called “control characters” because they primarily control formatting behavior instead of displaying visible text.
 
---
 
 ## 10. Hidden Control Characters in This Project
 
@@ -244,7 +234,6 @@ These were later cleaned in Silver layer using:
 REPLACE(column, CHAR(13), '')
 REPLACE(column, CHAR(10), '')
 
---
 
 ## 11. Why Hidden Characters Become Problematic
 
@@ -265,7 +254,6 @@ RAM\r
 
 may visually appear identical while being physically different values.
 
---
 
 ## 12. Incomplete Row Behavior
 
@@ -293,7 +281,6 @@ Behavior varies across:
 * ETL tools
 * import configurations
 
---
 
 ## 13. EOF (End Of File)
 
@@ -310,7 +297,6 @@ EOF is not:
 
 It simply indicates no more bytes remain in the file.
 
---
 
 ## 14. EOF and Malformed Row Handling
 
@@ -330,7 +316,6 @@ Possible behaviors:
 
 Behavior depends on parser implementation and import settings.
 
---
 
 ## 15. MAXERRORS Behavior
 
@@ -350,7 +335,6 @@ Malformed rows may include:
 * truncation issues
 * unrecoverable parsing errors
 
---
 
 ## 16. NULL vs Empty String vs Whitespace
 
@@ -378,7 +362,6 @@ actual stored character data
 
 Whitespace physically consumes storage bytes and may create hidden cleansing issues.
 
---
 
 ## 17. Import Behavior vs SQL Query Behavior
 
@@ -400,7 +383,6 @@ depending on:
 * constraints
 * parser behavior
 
---
 
 ## 18. Implicit Conversion Behavior
 
@@ -422,7 +404,6 @@ Therefore:
 * TRIM() is usually unnecessary for numeric/date conversion
 * more important for string cleansing
 
---
 
 ## 19. Date Conversion Observations
 
@@ -450,7 +431,6 @@ Behavior depends on:
 * language settings
 * DATEFORMAT configuration
 
---
 
 ## 20. Case Sensitivity
 
@@ -464,7 +444,7 @@ behaved case-insensitively due to SQL Server collation settings.
 
 This behavior is not universal across all databases or collations.
 
---
+
 
 ## Final Observation
 
