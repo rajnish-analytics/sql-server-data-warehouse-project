@@ -16,7 +16,7 @@ During Bronze-layer ingestion and Silver-layer cleansing, several SQL Server par
 
 These observations helped improve understanding of how SQL Server processes raw file data during ETL operations.
 
--
+
 
 ## 1. Files Are Internally Stored as Byte Streams
 
