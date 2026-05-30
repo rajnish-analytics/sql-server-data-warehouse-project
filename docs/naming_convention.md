@@ -1,10 +1,13 @@
-```text
+### Pattern
+
+```
 <source_system>_<entity>
 ```
+
+### Pattern
 ```
 <source_system>_<entity>
 ```
-```<source_system>_<entity>```
 # 📚 Data Warehouse Naming Conventions
 
 This document defines the naming standards used throughout the DataWarehouse project to ensure consistency, maintainability, and ease of understanding across all layers.
@@ -47,13 +50,13 @@ Bronze tables store raw data loaded directly from source systems.
 
 ### Pattern
 
-```text
+```
 <source_system>_<entity>
 ```
 
 ### Examples
 
-```text
+```
 crm_cust_info
 crm_prd_info
 erp_cust_az12
