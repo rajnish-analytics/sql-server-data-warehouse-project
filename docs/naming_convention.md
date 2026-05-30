@@ -11,9 +11,11 @@ This document defines the naming standards used throughout the DataWarehouse pro
   - [Bronze Layer](#bronze-layer)
   - [Silver Layer](#silver-layer)
   - [Gold Layer](#gold-layer)
+
 * [Column Naming Conventions](#-column-naming-conventions)
   - [Surrogate Keys](#surrogate-keys)
   - [Technical Columns](#technical-columns)
+
 * [Stored Procedure Naming Conventions](#-stored-procedure-naming-conventions)
 * [Design Principles](#-design-principles)
 
@@ -34,7 +36,7 @@ The following standards apply to all database objects:
 
 # 🏗️ Table Naming Conventions
 
--- Bronze Layer
+## Bronze Layer
 
 Bronze tables store raw data loaded directly from source systems.
 
@@ -61,7 +63,7 @@ erp_loc_a101
 
 ---
 
--- Silver Layer
+## Silver Layer
 
 Silver tables contain cleansed, standardized, and transformed data.
 
