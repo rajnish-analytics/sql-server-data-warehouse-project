@@ -1,6 +1,9 @@
 ```text
 <source_system>_<entity>
 ```
+```
+<source_system>_<entity>
+```
 ```<source_system>_<entity>```
 # 📚 Data Warehouse Naming Conventions
 
