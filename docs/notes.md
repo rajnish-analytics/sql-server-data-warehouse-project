@@ -1,4 +1,4 @@
-SQL Server BULK INSERT & Parser Behavior Notes
+# SQL Server BULK INSERT & Parser Behavior Notes
 
 Overview
 
@@ -16,9 +16,9 @@ During Bronze-layer ingestion and Silver-layer cleansing, several SQL Server par
 
 These observations helped improve understanding of how SQL Server processes raw file data during ETL operations.
 
-⸻
+--
 
-1. Files Are Internally Stored as Byte Streams
+## 1. Files Are Internally Stored as Byte Streams
 
 CSV/text files are internally stored as continuous byte streams.
 
@@ -46,9 +46,9 @@ Parser interpretation depends on:
 * newline format
 * malformed-row handling
 
-⸻
+--
 
-2. Windows vs Linux Newline Formats
+## 2. Windows vs Linux Newline Formats
 
 Common newline conventions:
 
@@ -70,9 +70,9 @@ Linux-style newline:
 
 \n = 0A
 
-⸻
+--
 
-3. Why 0D and 0A Have Leading Zeroes
+## 3. Why 0D and 0A Have Leading Zeroes
 
 One byte:
 
@@ -87,9 +87,9 @@ Decimal	Hex
 
 A single hexadecimal digit represents only 4 bits, therefore two digits are required to represent one full byte.
 
-⸻
+--
 
-4. Meaning of 0x Prefix
+## 4. Meaning of 0x Prefix
 
 Hexadecimal literals are commonly written using:
 
@@ -103,9 +103,9 @@ Meaning:
 
 interpret following values as hexadecimal bytes.
 
-⸻
+--
 
-5. ASCII, Hexadecimal, and Unicode
+## 5. ASCII, Hexadecimal, and Unicode
 
 ASCII assigns numeric values to characters.
 
@@ -125,9 +125,9 @@ Unicode extends ASCII to support:
 
 NVARCHAR commonly stores Unicode using UTF-16 encoding.
 
-⸻
+--
 
-6. VARCHAR vs NVARCHAR
+## 6. VARCHAR vs NVARCHAR
 
 VARCHAR
 
@@ -151,9 +151,9 @@ DATALENGTH()
 
 results.
 
-⸻
+--
 
-7. LEN() vs DATALENGTH()
+## 7. LEN() vs DATALENGTH()
 
 LEN()
 
@@ -180,9 +180,9 @@ Useful for:
 * hidden-character detection
 * ETL cleansing checks
 
-⸻
+--
 
-8. SQL Server Trailing Space Behavior
+## 8. SQL Server Trailing Space Behavior
 
 SQL Server commonly ignores trailing spaces during string comparison.
 
@@ -200,9 +200,9 @@ Behavior may vary depending on:
 * datatype
 * SQL Server configuration
 
-⸻
+--
 
-9. Control Characters
+## 9. Control Characters
 
 Control characters historically controlled:
 
@@ -220,9 +220,9 @@ Character	Purpose
 
 They are called “control characters” because they primarily control formatting behavior instead of displaying visible text.
 
-⸻
+--
 
-10. Hidden Control Characters in This Project
+## 10. Hidden Control Characters in This Project
 
 During Bronze-layer loading:
 
@@ -244,9 +244,9 @@ These were later cleaned in Silver layer using:
 REPLACE(column, CHAR(13), '')
 REPLACE(column, CHAR(10), '')
 
-⸻
+--
 
-11. Why Hidden Characters Become Problematic
+## 11. Why Hidden Characters Become Problematic
 
 Hidden control characters:
 
@@ -265,9 +265,9 @@ RAM\r
 
 may visually appear identical while being physically different values.
 
-⸻
+--
 
-12. Incomplete Row Behavior
+## 12. Incomplete Row Behavior
 
 Example:
 
@@ -293,9 +293,9 @@ Behavior varies across:
 * ETL tools
 * import configurations
 
-⸻
+--
 
-13. EOF (End Of File)
+## 13. EOF (End Of File)
 
 EOF means:
 
@@ -310,9 +310,9 @@ EOF is not:
 
 It simply indicates no more bytes remain in the file.
 
-⸻
+--
 
-14. EOF and Malformed Row Handling
+## 14. EOF and Malformed Row Handling
 
 Near EOF, parsers may tolerate certain incomplete trailing values differently compared to malformed rows occurring in the middle of the file.
 
@@ -330,9 +330,9 @@ Possible behaviors:
 
 Behavior depends on parser implementation and import settings.
 
-⸻
+--
 
-15. MAXERRORS Behavior
+## 15. MAXERRORS Behavior
 
 Example:
 
@@ -350,9 +350,9 @@ Malformed rows may include:
 * truncation issues
 * unrecoverable parsing errors
 
-⸻
+--
 
-16. NULL vs Empty String vs Whitespace
+## 16. NULL vs Empty String vs Whitespace
 
 NULL
 
@@ -378,9 +378,9 @@ actual stored character data
 
 Whitespace physically consumes storage bytes and may create hidden cleansing issues.
 
-⸻
+--
 
-17. Import Behavior vs SQL Query Behavior
+## 17. Import Behavior vs SQL Query Behavior
 
 Behavior during BULK INSERT may differ from standard SQL expressions.
 
@@ -400,9 +400,9 @@ depending on:
 * constraints
 * parser behavior
 
-⸻
+--
 
-18. Implicit Conversion Behavior
+## 18. Implicit Conversion Behavior
 
 SQL Server implicit conversion commonly tolerates:
 
@@ -422,9 +422,9 @@ Therefore:
 * TRIM() is usually unnecessary for numeric/date conversion
 * more important for string cleansing
 
-⸻
+--
 
-19. Date Conversion Observations
+## 19. Date Conversion Observations
 
 Examples:
 
@@ -450,9 +450,9 @@ Behavior depends on:
 * language settings
 * DATEFORMAT configuration
 
-⸻
+--
 
-20. Case Sensitivity
+## 20. Case Sensitivity
 
 In this project environment:
 
@@ -464,9 +464,9 @@ behaved case-insensitively due to SQL Server collation settings.
 
 This behavior is not universal across all databases or collations.
 
-⸻
+--
 
-Final Observation
+## Final Observation
 
 This project highlighted how ETL behavior depends on interaction between:
 
