@@ -54,8 +54,8 @@ BEGIN
           SELECT
           cst_id,
           cst_key,
-          TRIM(cst_firstname) cst_firstname,
-          TRIM(cst_lastname) cst_lastname,
+          UPPER(TRIM(cst_firstname)) cst_firstname,
+          UPPER(TRIM(cst_lastname)) cst_lastname,
           CASE WHEN UPPER(TRIM(cst_marital_status)) = 'S' THEN 'SINGLE'
                WHEN UPPER(TRIM(cst_marital_status)) = 'M' THEN 'MARRIED' 
                ELSE 'N/A' END cst_marital_status,
@@ -66,7 +66,7 @@ BEGIN
           FROM (
           SELECT
           *,
-          ROW_NUMBER() OVER(PARTITION BY cst_id ORDER BY cst_create_date) dup_latest
+          ROW_NUMBER() OVER(PARTITION BY cst_id ORDER BY cst_create_date DESC) dup_latest
           FROM bronze.crm_cust_info
           WHERE cst_id IS NOT NULL
           )t
@@ -102,10 +102,10 @@ BEGIN
           SUBSTRING(prd_key, 7, LEN(prd_key)) prd_key,
           prd_nm,
           ISNULL(ABS(prd_cost), 0) prd_cost,
-          CASE WHEN UPPER(TRIM(prd_line)) = 'M' THEN 'MARSH'
-               WHEN UPPER(TRIM(prd_line)) = 'R' THEN 'REEF'
-               WHEN UPPER(TRIM(prd_line)) = 'S' THEN 'SEA'
-               WHEN UPPER(TRIM(prd_line)) = 'T' THEN 'TRENCH'
+          CASE WHEN UPPER(TRIM(prd_line)) = 'M' THEN 'MAINSTREAM'
+               WHEN UPPER(TRIM(prd_line)) = 'R' THEN 'REGULAR'
+               WHEN UPPER(TRIM(prd_line)) = 'S' THEN 'SEASONAL'
+               WHEN UPPER(TRIM(prd_line)) = 'T' THEN 'TRAILING'
                ELSE 'N/A' END prd_line,
           prd_start_dt,
           DATEADD(DAY, -1, LEAD(prd_start_dt) OVER(PARTITION BY prd_key ORDER BY prd_start_dt)) prd_end_dt
@@ -149,7 +149,7 @@ BEGIN
           CASE WHEN sls_quantity IS NULL OR sls_quantity <= 0 THEN ABS(sls_sales) / NULLIF(ABS(sls_price), 0)
                ELSE sls_quantity END sls_quantity,
           CASE WHEN sls_price IS NULL OR sls_price <= 0 THEN ABS(sls_sales) / NULLIF(ABS(sls_quantity), 0)
-               ELSE sls_price END sls_sales
+               ELSE sls_price END sls_price
           FROM bronze.crm_sales_details;
           SET @end_time = GETDATE();
           SET @row_count = (SELECT COUNT(*) FROM silver.crm_sales_details);
@@ -180,8 +180,8 @@ BEGIN
                ELSE cid END cid,
           CASE WHEN bdate > GETDATE() THEN NULL
                ELSE bdate END bdate,
-          CASE WHEN UPPER(TRIM(REPLACE(gen,0X0D, ''))) = 'MALE' THEN 'MALE'  --Remove hidden control characters (\r)
-               WHEN UPPER(TRIM(REPLACE(gen,0X0D, ''))) = 'FEMALE' THEN 'FEMALE'  --Remove hidden control characters (\r)
+          CASE WHEN UPPER(TRIM(REPLACE(gen, 0X0D, ''))) IN ('M', 'MALE') THEN 'MALE'  --Remove hidden control characters (\r)
+               WHEN UPPER(TRIM(REPLACE(gen, 0X0D, ''))) IN ('F', 'FEMALE') THEN 'FEMALE'  --Remove hidden control characters (\r)
                ELSE 'N/A' END gen
           FROM bronze.erp_cust_az12;
           SET @end_time = GETDATE();
@@ -210,12 +210,12 @@ BEGIN
                WHEN cntry = 'FR' THEN 'FRANCE'
                WHEN cntry  = 'AUS' THEN 'AUSTRALIA'
                WHEN cntry = 'CAN' THEN 'CANADA'
-               WHEN cntry = '' THEN 'N/A'
+               WHEN cntry = '' OR cntry IS NULL THEN 'N/A'
                ELSE cntry END cntry
           FROM (
                SELECT
                cid,
-               UPPER(TRIM(REPLACE(cntry, char(13), ''))) cntry  --Remove hidden control characters (\r)
+               UPPER(TRIM(REPLACE(cntry, CHAR(13), ''))) cntry  --Remove hidden control characters (\r)
                FROM bronze.erp_loc_a101
                )t;
           SET @end_time = GETDATE();
@@ -243,8 +243,8 @@ BEGIN
           id,
           cat,
           subcat,
-          CASE WHEN UPPER(TRIM(REPLACE(maintenance, char(13), ''))) = 'YES' THEN 'YES'  --Remove hidden control characters (\r)
-               WHEN UPPER(TRIM(REPLACE(maintenance, char(13), ''))) = 'NO' THEN 'NO'  --Remove hidden control characters (\r)
+          CASE WHEN UPPER(TRIM(REPLACE(maintenance, CHAR(13), ''))) = 'YES' THEN 'YES'  --Remove hidden control characters (\r)
+               WHEN UPPER(TRIM(REPLACE(maintenance, CHAR(13), ''))) = 'NO' THEN 'NO'  --Remove hidden control characters (\r)
                ELSE 'N/A' END maintenance
           FROM bronze.erp_px_cat_g1v2;
           SET @end_time = GETDATE();
