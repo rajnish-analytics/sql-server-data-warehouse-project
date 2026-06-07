@@ -13,7 +13,7 @@ Tables:
     - silver.erp_loc_a101
     - silver.erp_px_cat_g1v2
 
-The script performs the following tasks:
+This script performs the following tasks:
 1. Checks if each table already exists in the 'silver' schema and drops it if it does.
 2. Creates new tables with the specified schema for each of the above-mentioned tables.
 3. This script is intended to be run once to set up the Silver layer tables before 
