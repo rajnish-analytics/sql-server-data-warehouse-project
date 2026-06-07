@@ -10,7 +10,7 @@ Warning: This script is destructive as it drops the existing DataWarehouse datab
 exists. It should be used with caution in non-production environments where data loss is 
 acceptable.
 
-This script performs the following actions:
+This script performs the following tasks:
 1. Checks for the existence of the DataWarehouse database and drops it if found.
 2. Creates a new DataWarehouse database.
 3. Creates three schemas within the DataWarehouse database: bronze, silver, and gold.
