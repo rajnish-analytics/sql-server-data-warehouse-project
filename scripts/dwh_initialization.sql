@@ -1,6 +1,6 @@
 /*
 ==============================================================================================
-Script: Create DataWarehouse Database and bronze/silver/gold schemas
+Script: Create DataWarehouse Database and bronze/silver/gold Schemas
 ==============================================================================================
 Objective: This script initializes the DataWarehouse database by creating it from scratch and 
 setting up the necessary schemas for the Bronze, Silver, and Gold layers of the data pipeline.
@@ -18,6 +18,7 @@ This script performs the following actions:
 ==============================================================================================
 */
 
+-- Switch to the master database
 USE master;
 GO
 
