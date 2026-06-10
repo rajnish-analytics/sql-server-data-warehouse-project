@@ -32,10 +32,10 @@ Internally resembles:
 
 Where:
 
-|   Hex	| Meaning            
-|   2C   | comma              
-|   0D   | carriage return \r 
-|   0A   | line feed \n       
+   Hex	   Meaning            
+   2C    comma              
+   0D    carriage return \r 
+   0A    line feed \n       
 
 Parser interpretation depends on:
 
