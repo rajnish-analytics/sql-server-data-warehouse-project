@@ -23,12 +23,16 @@ CSV/text files are internally stored as continuous byte streams.
 
 Example:
 
+```
 RAM,25
 SHAM,30
+```
 
-Internally resembles:
+Internal byte representation:
 
+```
 52 41 4D 2C 32 35 0D 0A 53 48 41 4D 2C 33 30
+```
 
 Where:
 
