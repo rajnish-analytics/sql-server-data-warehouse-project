@@ -186,7 +186,7 @@ SQL Server commonly ignores trailing spaces during string comparison.
 
 Example:
 
-'RAM' = 'RAM   '
+`'RAM' = 'RAM    '`
 
 may evaluate as TRUE.
 
