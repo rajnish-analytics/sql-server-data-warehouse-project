@@ -1,6 +1,6 @@
 # SQL Server BULK INSERT & Parser Behavior Notes
 
-Overview
+Overview:
 
 During Bronze-layer ingestion and Silver-layer cleansing, several SQL Server parsing and datatype behaviors were explored while working with:
 
