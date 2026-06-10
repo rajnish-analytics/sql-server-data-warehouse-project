@@ -376,7 +376,7 @@ Behavior during BULK INSERT may differ from standard SQL expressions.
 
 Example during import:
 
-,,
+`,,`
 
 may become:
 
