@@ -161,7 +161,7 @@ LEN()
 
 Example:
 
-LEN('RAM   ') = 3
+`LEN('RAM     ') = 3`
 
 ⸻
 
