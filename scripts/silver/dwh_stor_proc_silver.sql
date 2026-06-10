@@ -278,20 +278,21 @@ END
 GO
 
 /*
-Note:
-1. a) In this SQL Server instance, comparisons using CASE, WHERE, LIKE, and '=' are case-insensitive due to the default collation.
-However, UPPER() is still used during transformations for consistency, scalability, and compatibility across different SQL 
-Server environments.
-b) SQL Server supports implicit conversion between compatible INT and DATE-related operations in certain scenarios.
-c) SQL Server tolerated control characters for INT and DATE datatypes.
+-- ==============================================================================================================================
+-- Notes:
+-- ==============================================================================================================================
+1. In this SQL Server instance, `CASE`, `WHERE`, `LIKE`, and `=` comparisons are case-insensitive due to the default collation. 
+   However, `UPPER()` was still used during transformations for consistency, scalability, and cross-environment compatibility.
 
+2. SQL Server supports implicit conversion between compatible `INT` and `DATE` operations in certain scenarios.
 
-2. Control Character Reference:
-\r  = CHAR(13) = ASCII Decimal 13 = Hexadecimal 0D
-\n  = CHAR(10) = ASCII Decimal 10 = Hexadecimal 0A
+3. During testing and data loading, SQL Server tolerated certain control characters in `INT` and `DATE` datatype conversions.
 
-3. ROWTERMINATOR = ‘\n’ was used during Bronze-layer BULK INSERT. Since Windows source files commonly use (\r\n) line endings, 
-residual carriage return characters (\r or CHAR(13) or 0D Hex) remained attached to imported values and were removed during 
-Silver-layer cleansing using REPLACE() in last columns having string DATATYPE. This can also be handled during bulk loading 
-itself by defining the appropriate ROWTERMINATOR i.e ROWTERMINATOR = '\r\n' or '0X0D0A'.
+   * `\r` = `CHAR(13)` = ASCII Decimal `13` = Hexadecimal `0D`
+   * `\n` = `CHAR(10)` = ASCII Decimal `10` = Hexadecimal `0A`
+
+4. During Bronze-layer `BULK INSERT`, `ROWTERMINATOR = '\n'` was used. Since Windows text files commonly use `\r\n` line endings, 
+   residual carriage return characters (`\r` / `CHAR(13)` / `0D Hex`) remained attached to imported values. These were removed 
+   during Silver-layer cleansing using `REPLACE()` in affected string columns. This can also be avoided during bulk loading by
+   using `ROWTERMINATOR = '\r\n'` or `ROWTERMINATOR = '0x0D0A'`.
 */
