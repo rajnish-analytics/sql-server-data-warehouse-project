@@ -279,17 +279,19 @@ GO
 
 /*
 Note:
-In this SQL Server instance, comparisons using CASE, WHERE, LIKE, and '=' are case-insensitive due to the default collation.
+1. a) In this SQL Server instance, comparisons using CASE, WHERE, LIKE, and '=' are case-insensitive due to the default collation.
 However, UPPER() is still used during transformations for consistency, scalability, and compatibility across different SQL 
 Server environments.
-Also, SQL Server supports implicit conversion between compatible INT and DATE-related operations in certain scenarios.
+b) SQL Server supports implicit conversion between compatible INT and DATE-related operations in certain scenarios.
+c) SQL Server tolerated control characters for INT and DATE datatypes.
 
-Control Character Reference:
+
+2. Control Character Reference:
 \r  = CHAR(13) = ASCII Decimal 13 = Hexadecimal 0D
 \n  = CHAR(10) = ASCII Decimal 10 = Hexadecimal 0A
 
-ROWTERMINATOR = ‘\n’ was used during Bronze-layer BULK INSERT. Since Windows source files commonly use (\r\n) line endings, 
+3. ROWTERMINATOR = ‘\n’ was used during Bronze-layer BULK INSERT. Since Windows source files commonly use (\r\n) line endings, 
 residual carriage return characters (\r or CHAR(13) or 0D Hex) remained attached to imported values and were removed during 
-Silver-layer cleansing using REPLACE(). This can also be handled during bulk loading itself by defining the appropriate 
-ROWTERMINATOR i.e ROWTERMINATOR = '\r\n' or '0X0D0A'
+Silver-layer cleansing using REPLACE() in last columns having string DATATYPE. This can also be handled during bulk loading 
+itself by defining the appropriate ROWTERMINATOR i.e ROWTERMINATOR = '\r\n' or '0X0D0A'.
 */
