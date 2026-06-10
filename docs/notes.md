@@ -223,11 +223,11 @@ They are called “control characters” because they primarily control formatti
 
 During Bronze-layer loading:
 
-ROWTERMINATOR = '\n'
+ROWTERMINATOR = `'\n'`
 
 was used while source files likely contained Windows-style line endings:
 
-\r\n
+`'\r\n'`
 
 Result:
 
