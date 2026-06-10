@@ -32,10 +32,10 @@ Internally resembles:
 
 Where:
 
-Hex	Meaning
-2C	comma ,
-0D	carriage return \r
-0A	line feed \n
+|   Hex	| Meaning            |
+|   2C   | comma              |
+|   0D   | carriage return \r |
+|   0A   | line feed \n       |
 
 Parser interpretation depends on:
 
@@ -50,15 +50,15 @@ Parser interpretation depends on:
 
 Common newline conventions:
 
-OS	Newline
-Windows	\r\n
-Linux/macOS	\n
+| OS          | Newline | 
+| Windows     | \r\n    |
+| Linux/macOS | \n      |
 
 Equivalent representations:
 
-Character	SQL	Decimal	Hex
-Carriage Return	CHAR(13)	13	0D
-Line Feed	CHAR(10)	10	0A
+| Character SQL   |    Decimal   | Hex |
+| Carriage Return | CHAR(13)	13 | 0D  |
+| Line Feed	      | CHAR(10)	10	| 0A  |
 
 Windows-style newline:
 
@@ -78,9 +78,9 @@ One byte:
 
 Examples:
 
-Decimal	Hex
-13	0D
-10	0A
+| Decimal | Hex |
+|   13    | 0D  |
+|   10    | 0A  |
 
 A single hexadecimal digit represents only 4 bits, therefore two digits are required to represent one full byte.
 
@@ -106,10 +106,10 @@ ASCII assigns numeric values to characters.
 
 Examples:
 
-Character	Decimal	Hex
-A	65	41
-\r	13	0D
-\n	10	0A
+| Character | Decimal | Hex |
+|    A      |   65	 | 41  |
+|   \r	   |   13	 | 0D  |
+|   \n	   |   10	 | 0A  |
 
 Unicode extends ASCII to support:
 
@@ -135,9 +135,9 @@ NVARCHAR
 
 Example:
 
-Datatype	Character A
-VARCHAR	~1 byte
-NVARCHAR	~2 bytes
+| Datatype | Character A |
+| VARCHAR  |  ~1 byte    |
+| NVARCHAR |  ~2 bytes   |
 
 This directly affects:
 
