@@ -238,7 +238,7 @@ This caused hidden carriage-return characters to appear inside imported data.
 
 These were later cleaned in Silver layer using:
 
-`'REPLACE(column, CHAR(13), '')`  
+`REPLACE(column, CHAR(13), '')`  
 `REPLACE(column, CHAR(10), '')`
 
 
