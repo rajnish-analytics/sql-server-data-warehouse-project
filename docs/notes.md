@@ -231,15 +231,15 @@ was used while source files likely contained Windows-style line endings:
 
 Result:
 
-* \n acted as row terminator
-* residual \r remained attached to imported values
+* `\n` acted as row terminator
+* residual `\r` remained attached to imported values
 
 This caused hidden carriage-return characters to appear inside imported data.
 
 These were later cleaned in Silver layer using:
 
-REPLACE(column, CHAR(13), '')
-REPLACE(column, CHAR(10), '')
+`REPLACE(column, CHAR(13), '')`
+`REPLACE(column, CHAR(10), '')`
 
 
 ## 11. Why Hidden Characters Become Problematic
