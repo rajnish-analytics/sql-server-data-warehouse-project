@@ -51,15 +51,17 @@ Parser interpretation depends on:
 
 Common newline conventions:
 
-| OS          | Newline | 
-| Windows     | \r\n    |
-| Linux/macOS | \n      |
+| OS | Newline |
+| :--- | :--- |
+| Windows | `\r\n` |
+| Linux/macOS | `\n` |
 
 Equivalent representations:
 
-| Character SQL   |    Decimal   | Hex |
-| Carriage Return | CHAR(13)	13 | 0D  |
-| Line Feed	      | CHAR(10)	10	| 0A  |
+| Character | SQL | Decimal | Hex |
+| :--- | :--- | :--- | :--- |
+| Carriage Return | `CHAR(13)` | 13 | 0D |
+| Line Feed | `CHAR(10)` | 10 | 0A |
 
 Windows-style newline:
 
@@ -80,8 +82,9 @@ One byte:
 Examples:
 
 | Decimal | Hex |
-|   13    | 0D  |
-|   10    | 0A  |
+| :--- | :--- |
+| 13 | 0D |
+| 10 | 0A |
 
 A single hexadecimal digit represents only 4 bits, therefore two digits are required to represent one full byte.
 
@@ -108,9 +111,10 @@ ASCII assigns numeric values to characters.
 Examples:
 
 | Character | Decimal | Hex |
-|    A      |   65	 | 41  |
-|   \r	   |   13	 | 0D  |
-|   \n	   |   10	 | 0A  |
+| :--- | :--- | :--- |
+| A | 65 | 41 |
+| \r | 13 | 0D |
+| \n | 10 | 0A |
 
 Unicode extends ASCII to support:
 
@@ -137,8 +141,9 @@ NVARCHAR
 Example:
 
 | Datatype | Character A |
-| VARCHAR  |  ~1 byte    |
-| NVARCHAR |  ~2 bytes   |
+| :--- | :--- |
+| VARCHAR | ~1 byte |
+| NVARCHAR | ~2 bytes |
 
 This directly affects:
 
@@ -205,10 +210,11 @@ Control characters historically controlled:
 
 Examples:
 
-Character	Purpose
-\r	move carriage to line start
-\n	move to next line
-\t	horizontal tab
+| Character | Purpose |
+| :--- | :--- |
+| \r | move carriage to line start |
+| \n | move to next line |
+| \t | horizontal tab |
 
 They are called “control characters” because they primarily control formatting behavior instead of displaying visible text.
 
@@ -417,10 +423,10 @@ may successfully convert to DATE.
 
 SQL Server internally applies year cutoff logic:
 
-Input	Interpreted Year
-
-00–49	2000–2049
-50–99	1950–1999
+| Input | Interpreted Year |
+| :--- | :--- |
+| 00–49 | 2000–2049 |
+| 50–99 | 1950–1999 |
 
 Examples:
 
@@ -468,3 +474,4 @@ Many behaviors are parser-specific and may vary across:
 * operating systems
 * CSV parsers
 * cloud ingestion systems
+---
