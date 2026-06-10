@@ -402,7 +402,7 @@ SQL Server implicit conversion commonly tolerates:
 
 Example:
 
-CAST('   -5   ' AS INT)
+`CAST('   -5   ' AS INT)`
 
 works successfully.
 
