@@ -417,6 +417,7 @@ may successfully convert to DATE.
 SQL Server internally applies year cutoff logic:
 
 Input	Interpreted Year
+
 00–49	2000–2049
 50–99	1950–1999
 
