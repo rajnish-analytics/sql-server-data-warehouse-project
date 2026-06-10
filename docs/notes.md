@@ -416,7 +416,7 @@ Therefore:
 
 Examples:
 
-20260429
+20260429  
 491125
 
 may successfully convert to DATE.
