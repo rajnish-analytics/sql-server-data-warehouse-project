@@ -509,13 +509,7 @@ ETL behavior in SQL Server is influenced by multiple interacting factors:
 * SQL Server settings
 * storage format (VARCHAR/NVARCHAR)
 
-Many behaviors are parser-specific and may vary across:
-
-* SQL Server versions
-* ETL tools
-* operating systems
-* CSV parsers
-* cloud ingestion systems
+Understanding these interactions helps explain many ingestion issues encountered during BULK INSERT operations, including hidden control characters, malformed rows, datatype conversion behavior, and EOF handling.
 
 <div align="center">
 
