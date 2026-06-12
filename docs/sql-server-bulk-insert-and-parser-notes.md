@@ -1,4 +1,4 @@
-# SQL Server Data Ingestion, BULK INSERT & Parsing Notes
+# SQL Server BULK INSERT & Parser Behavior Notes
 
 > **Note:**
 > Many behaviors described in this document are implementation-specific observations made during this project. Results may vary across SQL Server versions, operating systems, file encodings, ETL tools, and database configurations.
