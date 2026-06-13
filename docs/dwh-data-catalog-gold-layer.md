@@ -27,7 +27,7 @@ Stores customer-related demographic and profile information used for customer an
 
 | Column Name       | Data Type    | Description                                                                     |
 | ----------------- | ------------ | ------------------------------------------------------------------------------- |
-| `customer_key`    | BIGINT          | Surrogate key uniquely identifying each customer record in the dimension table. |
+| `customer_key`    | BIGINT       | Surrogate key uniquely identifying each customer record in the dimension table. |
 | `customer_id`     | INT          | Unique identifier assigned to each customer from the source system.             |
 | `customer_number` | NVARCHAR(50) | Alphanumeric customer reference number used for business tracking.              |
 | `first_name`      | NVARCHAR(50) | Customer's first name.                                                          |
@@ -55,7 +55,7 @@ Stores product-related attributes and hierarchical product information used for 
 | `product_key`    | BIGINT        | Surrogate key uniquely identifying each product record in the dimension table. |
 | `product_id`     | INT           | Unique identifier assigned to the product from the source system.              |
 | `product_number` | NVARCHAR(50)  | Alphanumeric product reference number used for inventory and tracking.         |
-| `product_name`   | NVARCHAR(50) | Descriptive name of the product.                                               |
+| `product_name`   | NVARCHAR(50)  | Descriptive name of the product.                                               |
 | `category_id`    | NVARCHAR(50)  | Identifier representing the product category.                                  |
 | `category`       | NVARCHAR(50)  | High-level product classification.                                             |
 | `subcategory`    | NVARCHAR(50)  | Detailed product classification within the category.                           |
