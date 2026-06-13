@@ -243,9 +243,7 @@ BEGIN
           id,
           cat,
           subcat,
-          CASE WHEN UPPER(TRIM(REPLACE(maintenance, CHAR(13), ''))) = 'YES' THEN 'YES'  --Remove hidden control characters (\r)
-               WHEN UPPER(TRIM(REPLACE(maintenance, CHAR(13), ''))) = 'NO' THEN 'NO'  --Remove hidden control characters (\r)
-               ELSE 'N/A' END maintenance
+          UPPER(TRIM(REPLACE(maintenance, CHAR(13), ''))) maintenance  --Remove hidden control characters (\r)
           FROM bronze.erp_px_cat_g1v2;
           SET @end_time = GETDATE();
           SET @row_count = (SELECT COUNT(*) FROM silver.erp_px_cat_g1v2);
@@ -278,9 +276,9 @@ END
 GO
 
 /*
--- ==============================================================================================================================
--- Notes:
--- ==============================================================================================================================
+==============================================================================================================================
+Notes:
+==============================================================================================================================
 1. In this SQL Server instance, `CASE`, `WHERE`, `LIKE`, and `=` comparisons are case-insensitive due to the default collation. 
    However, `UPPER()` was still used during transformations for consistency, scalability, and cross-environment compatibility.
 
