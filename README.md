@@ -1,4 +1,4 @@
-# 🚀 SQL Data Warehouse Project
+# 🚀 SQL Server Data Warehouse Project
 
 > End-to-end SQL Server Data Warehousing project implementing layered architecture, ETL processing, dimensional modeling, and business-ready analytical data structures using T-SQL.
 
@@ -6,7 +6,7 @@
 
 # 📌 Project Overview
 
-**DataWarehouseAnalysis** is a SQL-based Data Warehousing project focused on designing and building a modern analytical warehouse using SQL Server and T-SQL.
+**SQL Server Data Warehouse Project** is focused on designing and building a modern analytical warehouse through structured ETL processing, dimensional modeling, and business-ready data transformation using T-SQL.
 
 The project simulates a real-world enterprise data warehousing workflow where raw ERP and CRM datasets are:
 
@@ -64,7 +64,7 @@ Source Systems → Bronze Layer → Silver Layer → Gold Layer
 # 📂 Repository Structure
 
 ```text
-sql-data-warehouse-project/
+sql-server-data-warehouse-project/
 │
 ├── datasets/
 │   │
