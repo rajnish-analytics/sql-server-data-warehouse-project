@@ -1,81 +1,342 @@
-# SQL Data Warehouse Project
-🚀 Designing and building a modern data warehouse using SQL Server, including ETL pipelines, dimensional modeling, data transformation, and business analytics.
+# 🚀 SQL Data Warehouse Project
 
-⸻
+> End-to-end SQL Server Data Warehousing project implementing layered architecture, ETL processing, dimensional modeling, and business-ready analytical data structures using T-SQL.
 
-📌 Project Overview
+---
 
-This project focuses on building an end-to-end data warehouse solution using SQL Server.
-The objective is to transform raw operational data into structured, analytics-ready datasets through ETL processes and dimensional modeling techniques.
-The project simulates a real-world business intelligence workflow used in modern data and analytics environments.
+# 📌 Project Overview
 
-⸻
+**DataWarehouseAnalysis** is a SQL-based Data Warehousing project focused on designing and building a modern analytical warehouse using SQL Server and T-SQL.
 
-🏗️ Data Architecture
+The project simulates a real-world enterprise data warehousing workflow where raw ERP and CRM datasets are:
 
-This project follows a modern Data Warehouse Architecture approach using:
-* 🥉 Bronze Layer → Raw data ingestion
-* 🥈 Silver Layer → Cleaned and transformed data
-* 🥇 Gold Layer → Business-ready analytical data
-The modeling approach is inspired by dimensional modeling concepts commonly used in analytical systems.
+* extracted from multiple source systems,
+* ingested into structured warehouse layers,
+* cleansed and standardized,
+* transformed into analytical models,
+* and loaded into business-ready fact and dimension tables.
 
-⸻
+The project demonstrates practical implementation of:
 
-⚙️ Tech Stack
+* 🏗️ Data Warehousing
+* 🔄 ETL Pipeline Development
+* 🧱 Dimensional Modeling
+* 📊 Analytical Data Transformation
+* 📈 Business-Ready Data Structuring
 
-* SQL Server
-* T-SQL
-* VS Code
-* Docker
-* Git & GitHub
+---
 
-⸻
+# 🏗️ Data Warehouse Architecture
 
-🧠 Concepts Covered
+The warehouse follows a modern layered Medallion Architecture:
 
-* ETL (Extract, Transform, Load)
-* Dimensional Modeling
-* Fact and Dimension Tables
-* Window Functions
-* Analytical SQL Queries
-* Joins and Set Operations
-* CTEs and Subqueries
-* Aggregations and Reporting
+```text
+Source Systems → Bronze Layer → Silver Layer → Gold Layer
+```
 
-⸻
+---
 
-📂 Project Structure
+# 🔹 Layer Breakdown
 
-sql-server-data-warehouse-project/
+| Layer           | Description                                                        |
+| --------------- | ------------------------------------------------------------------ |
+| 🥉 Bronze Layer | Raw ingestion of ERP & CRM source datasets                         |
+| 🥈 Silver Layer | Data cleansing, normalization, standardization, and transformation |
+| 🥇 Gold Layer   | Business-ready analytical fact and dimension tables                |
+
+---
+
+# 🛠️ Tech Stack
+
+| Technology                          | Purpose                               |
+| ----------------------------------- | ------------------------------------- |
+| SQL Server                          | Database engine                       |
+| T-SQL                               | ETL development & data transformation |
+| SQL Server Management Studio (SSMS) | Development environment               |
+| Stored Procedures                   | ETL automation                        |
+| Window Functions                    | Analytical calculations               |
+| Common Table Expressions (CTEs)     | Modular query development             |
+| Dimensional Modeling                | Warehouse schema design               |
+| Git & GitHub                        | Version control & project management  |
+
+---
+
+# 📂 Repository Structure
+
+```text
+sql-data-warehouse-project/
 │
-├── datasets/        # Raw datasets
-├── staging/         # Staging layer scripts
-├── sql_scripts/     # ETL and transformation scripts
-├── warehouse/       # Fact and dimension modeling
-├── analytics/       # Business analysis queries
-├── docs/            # Notes and documentation
+├── datasets/
+│   │
+│   ├── crm/
+│   │   ├── cust_info.csv
+│   │   ├── prd_info.csv
+│   │   └── sales_details.csv
+│   │
+│   └── erp/
+│       ├── CUST_AZ12.csv
+│       ├── LOC_A101.csv
+│       └── PX_CAT_G1V2.csv
+│
+├── docs/
+│   ├── dwh-medallion-architecture.pdf
+│   ├── dwh-architecture-flow.pdf
+│   ├── dwh-ERD.pdf
+│   ├── dwh-sales-dimensional-model.pdf
+│   ├── dwh-naming-conventions.md
+│   ├── dwh-data-catalog-gold-layer.md
+│   └── sql-server-bulk-insert-and-parser-notes.md
+│
+├── scripts/
+│   │
+│   ├── bronze/
+│   │   ├── dwh_ddl_bronze.sql
+│   │   └── dwh_stor_proc_bronze.sql
+│   │
+│   ├── silver/
+│   │   ├── dwh_ddl_silver.sql
+│   │   └── dwh_stor_proc_silver.sql
+│   │
+│   ├── gold/
+│   │   └── dwh_ddl_gold.sql
+│   │
+│   └── dwh_initialization.sql
+│
+├── tests/
+│   ├── dwh_bronze_quality_checks.sql
+│   ├── dwh_silver_quality_checks.sql
+│   └── dwh_gold_quality_checks.sql
+│
+├── LICENSE
 └── README.md
+```
 
-⸻
+---
 
-🎯 Learning Goals
+# 🔄 ETL Overview
 
-* Build practical SQL and data engineering skills
-* Understand real-world ETL workflows
-* Learn dimensional modeling concepts
-* Practice analytical SQL problem-solving
-* Create a strong portfolio project for data roles
+The project implements a structured ETL (Extract, Transform, Load) pipeline for building a business-ready analytical warehouse.
 
-⸻
+---
 
-👨‍💻 About Me
+# 📥 Extraction Layer
 
-I am a Chemical Engineering graduate from NIT Jalandhar transitioning into data analytics and data engineering.
-After working in the manufacturing industry as an Engineer, I started learning SQL, analytics, and data engineering through hands-on projects and problem solving.
-This repository documents my learning journey and practical implementation experience.
+## Extraction Method
 
-⸻
+* Pull Extraction
 
-📜 License
+## Extract Type
 
-This project is licensed under the MIT License.
+* Full Extraction
+
+## Extraction Technique
+
+* File Parsing
+
+### Source Systems
+
+* CRM datasets
+* ERP datasets
+* CSV-based structured source files
+
+---
+
+# 🔄 Transformation Layer
+
+The transformation layer standardizes, cleanses, integrates, and enriches raw source data before loading into analytical structures.
+
+---
+
+## 📌 Transformation Techniques
+
+### Data Cleansing
+
+* Remove duplicates
+* Data filtering
+* Handling missing data
+* Handling invalid values
+* Handling unwanted spaces
+* Data type casting
+* Outlier detection
+
+---
+
+### Data Standardization & Processing
+
+* Data normalization
+* Derived columns
+* Business rules & logic
+* Data aggregation
+
+---
+
+### Data Integration
+
+* CRM & ERP data integration
+* Cross-source entity mapping
+* Business-ready transformation
+
+---
+
+### Data Enrichment
+
+* Surrogate key generation
+* Analytical attribute enhancement
+* Dimensional business structuring
+
+---
+
+# 📤 Load Layer
+
+## Processing Type
+
+* Batch Processing
+
+## Load Method
+
+* Full Load (Truncate & Insert)
+
+## Slowly Changing Dimension (SCD)
+
+* SCD Type 1 (Overwrite Strategy)
+
+---
+
+# 🧱 Data Modeling Approach
+
+The project follows a **Dimensional Modeling** approach optimized for analytical querying and reporting.
+
+The warehouse is designed using:
+
+* Fact Tables
+* Dimension Tables
+* Surrogate Keys
+* Business-Oriented Relationships
+* Analytical Data Structures
+
+---
+
+# 📌 Gold Layer Tables
+
+The Gold Layer contains business-ready analytical structures.
+
+---
+
+## 📌 Dimension Tables
+
+### `gold.dim_customers`
+
+Stores customer demographic and business information including:
+
+* Customer identifiers
+* Customer demographics
+* Country information
+* Gender & marital status
+* Customer lifecycle details
+
+---
+
+### `gold.dim_products`
+
+Stores product-related business attributes including:
+
+* Product hierarchy
+* Product categories
+* Product subcategories
+* Product cost
+* Product line information
+* Maintenance attributes
+
+---
+
+## 📌 Fact Table
+
+### `gold.fact_sales`
+
+Stores transactional sales data including:
+
+* Orders
+* Revenue
+* Quantity sold
+* Customer references
+* Product references
+* Order dates
+* Shipping information
+
+---
+
+# 📑 Data Quality Validation
+
+The project includes dedicated SQL-based quality validation scripts for:
+
+* Null validation
+* Duplicate detection
+* Referential integrity checks
+* Data consistency validation
+* Standardization verification
+
+---
+
+# 📚 Documentation Included
+
+The project includes supporting technical documentation such as:
+
+* Entity Relationship Diagram (ERD)
+* Data Architecture Flow
+* Medallion Architecture
+* Sales Dimensional Model
+* Naming Conventions
+* Gold Layer Data Catalog
+* SQL Server Bulk Insert & Parser Notes
+
+---
+
+# 🧠 SQL Concepts Demonstrated
+
+This project demonstrates practical implementation of:
+
+* Stored Procedures
+* ETL Design
+* Batch Processing
+* Window Functions
+* Common Table Expressions (CTEs)
+* Data Cleansing Techniques
+* Surrogate Key Generation
+* Joins & Transformations
+* Dimensional Modeling
+* Business-Oriented SQL Logic
+
+---
+
+# 🎯 Learning Outcomes
+
+Through this project, the following concepts were strengthened:
+
+* Data Warehousing Fundamentals
+* ETL Pipeline Development
+* Advanced T-SQL
+* Dimensional Modeling
+* Data Cleansing & Transformation
+* SQL-Based Analytical Architecture
+* Structured Project Development
+* Business-Oriented Data Engineering
+
+---
+
+# 👨‍💻 Author
+
+## Rajnish
+
+Chemical Engineering graduate from **NIT Jalandhar** transitioning into **Data Analytics & Data Engineering** with strong interest in:
+
+* 📊 Data Analytics
+* 🏗️ Data Engineering
+* 📈 Business Intelligence
+* 🧠 Analytical Problem Solving
+* 🛢️ Advanced SQL
+
+<div align="center">
+
+### ◈ ◈ ◈
+
+</div>
