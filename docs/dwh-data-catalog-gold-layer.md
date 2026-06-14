@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Gold Layer** represents the business-ready analytical layer of the warehouse.
+The **Gold Layer** represents the business-ready analytical layer of the Data Warehouse.
 It contains curated **fact** and **dimension** tables optimized for reporting, business analytics, and SQL-based analysis.
 
 The layer is designed using a **Dimensional Modeling** approach to support:
