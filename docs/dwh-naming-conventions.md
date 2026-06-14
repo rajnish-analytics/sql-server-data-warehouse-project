@@ -1,6 +1,6 @@
 # 📚 Data Warehouse Naming Conventions
 
-This document defines the naming standards used throughout the SQL Data Warehouse project to ensure consistency, maintainability, and ease of understanding across all layers.
+This document defines the naming standards used throughout the SQL Server Data Warehouse Project to ensure consistency, maintainability, and ease of understanding across all layers.
 
 ---
 
@@ -211,11 +211,11 @@ The warehouse follows a Medallion Architecture consisting of three logical layer
 * Maintain data lineage from source to reporting.
 * Improve data quality through standardization and validation.
 * Support scalable reporting and analytical workloads.
-* Ensure consistent naming and modeling practices throughout the Warehouse.
+* Ensure consistent naming and modeling practices throughout the Data Warehouse.
 
 ---
 
-**Project:** SQL Data Warehouse Project
+**Project:** SQL Server Data Warehouse Project
 
 <div align="center">
 
